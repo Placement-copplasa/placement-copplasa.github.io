@@ -38,7 +38,7 @@ Relatório por **link** abre a página original em nova aba, sempre na versão m
 
 ### Atualização automática dos relatórios (robô)
 
-Uma rotina diária no Claude (todo dia às 14h, horário de Brasília) pega a versão mais recente de cada relatório com **cópia automática** e publica no portal como arquivo, no lugar do anterior. Quem usa o portal nunca vê o link do artefato e não precisa de conta no Claude.
+Uma rotina diária no Claude (todo dia às 10h, horário de Brasília) pega a versão mais recente de cada relatório com **cópia automática** e publica no portal como arquivo, no lugar do anterior. Quem usa o portal nunca vê o link do artefato e não precisa de conta no Claude.
 
 Para um relatório entrar na rotina, no portal clique em **Publicar relatório** (ou **Editar**), escolha **Cópia automática de um artefato do Claude** e cole o link do artefato. Para tirar da rotina, edite e escolha outra forma de publicar.
 

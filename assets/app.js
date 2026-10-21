@@ -775,7 +775,7 @@
     $("#rel-link-field").hidden = tipo !== "link" && tipo !== "auto";
     $("#rel-url-label").textContent = tipo === "auto" ? "Link do artefato do Claude" : "Link do relatório";
     $("#rel-url-hint").textContent = tipo === "auto"
-      ? "Todo dia às 14h o robô copia a versão mais recente deste artefato para o portal. Quem usa o portal vê a cópia, sem precisar de conta no Claude e sem ver este link."
+      ? "Todo dia às 10h o robô copia a versão mais recente deste artefato para o portal. Quem usa o portal vê a cópia, sem precisar de conta no Claude e sem ver este link."
       : "Cole o endereço da página original. Abrir relatório leva direto para ela, sempre na versão mais recente. Cada pessoa precisa ter acesso a esse link: no Claude, compartilhe o relatório com ela pelo botão Compartilhar.";
     $("#rel-file-field").hidden = tipo !== "arquivo";
     const trocaArquivo = r && r.arquivo && tipo === "arquivo";
