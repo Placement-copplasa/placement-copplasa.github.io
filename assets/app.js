@@ -50,10 +50,6 @@
     const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || "");
     return m ? m[3] + "/" + m[2] + "/" + m[1] : "";
   }
-  function fmtDateTime(ts) {
-    const d = ts ? new Date(ts) : null;
-    return d && !isNaN(d) ? d.toLocaleDateString("pt-BR") + " às " + d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }) : "";
-  }
   function fmtTimestamp(ts) {
     const d = ts ? new Date(ts) : null;
     return d && !isNaN(d) ? d.toLocaleDateString("pt-BR") : "";
@@ -663,11 +659,10 @@
         : '<span><span class="chip chip-solid">Somente equipe</span></span>';
       const link = safeUrl(r.url);
       const meta = r.fonte_url
-        ? (r.arquivo ? "Cópia automática diária · atualizado em " + fmtDateTime(r.publicado_em) + (r.tamanho ? " · " + fmtSize(r.tamanho) : "")
-                     : "Cópia automática · aguardando a primeira atualização")
+        ? (r.arquivo ? "Atualizado - " + fmtTimestamp(r.publicado_em) : "Aguardando a primeira atualização")
         : link
         ? "Página online, sempre na versão mais recente · " + hostOf(link)
-        : "Atualizado em " + fmtTimestamp(r.publicado_em) + (r.tamanho ? " · " + fmtSize(r.tamanho) : "");
+        : "Atualizado - " + fmtTimestamp(r.publicado_em);
       const abrir = link
         ? '<a class="btn btn-primary btn-sm" href="' + esc(link) + '" target="_blank" rel="noopener noreferrer">Abrir relatório <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a>'
         : '<button type="button" class="btn btn-primary btn-sm" data-open="' + esc(r.id) + '">Abrir relatório</button>';
@@ -709,7 +704,7 @@
     }
     const token = ++viewerToken;
     $("#viewer-title").textContent = r.titulo;
-    $("#viewer-meta").textContent = "Atualizado em " + fmtTimestamp(r.publicado_em);
+    $("#viewer-meta").textContent = "Atualizado - " + fmtTimestamp(r.publicado_em);
     mountFrame(null);
     setViewerStatus("Carregando relatório" + (r.tamanho ? " (" + fmtSize(r.tamanho) + ")" : "") + "...");
     $("#viewer").hidden = false;
